@@ -1,0 +1,1723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover Shreeji Dairy & Sweets, where tradition meets luxury in handcrafted Indian sweets and beverages.">
+    <meta name="keywords" content="Indian sweets, dairy products, luxury desserts, Shreeji Dairy">
+    <meta name="author" content="Shreeji Dairy & Sweets">
+    <title>Luxury Sweets & Confectionery | Shreeji Dairy & Sweets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E5C2;
+            --gold-dark: #996515;
+            --marble: #F8F4E9;
+            --ivory: #FFFFF0;
+            --chocolate: #3D2B1F;
+            --truffle: #4f3113;
+            --rose-gold: #B76E79;
+            --platinum: #E5E4E2;
+            --diamond: #C0E8FF;
+            --sapphire: #0F52BA;
+            --emerald: #50C878;
+            --ruby: #E0115F;
+            --onyx: #0A0A0A;
+            --pearl: #F8F6F0;
+            --silk: #F5E9D9;
+            --shadow: rgba(0,0,0,0.15);
+            --amethyst: #9B59B6; /* New premium color */
+            --champagne: #F7E7CE; /* New premium color */
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Dark mode variables */
+            --bg-dark: #1A1A1A;
+            --text-dark: #E8ECEF;
+            --accent-dark: #FFD700;
+        }
+
+        [data-theme="dark"] {
+            --marble: var(--bg-dark);
+            --pearl: #2C2C2C;
+            --truffle: var(--text-dark);
+            --chocolate: var(--text-dark);
+            --gold: var(--accent-dark);
+            --gold-light: var(--accent-dark);
+            --gold-dark: #CCAC00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--marble);
+            color: var(--truffle);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.8;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--onyx);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px var(--shadow);
+            transition: var(--transition);
+        }
+
+        nav .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav .nav-links a {
+            color: var(--pearl);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .theme-toggle {
+            background: var(--gold);
+            color: var(--chocolate);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .cart-counter {
+            position: relative;
+            color: var(--pearl);
+            font-size: 1rem;
+        }
+
+        .cart-counter::after {
+            content: attr(data-count);
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--ruby);
+            color: white;
+            border-radius: 50%;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--onyx), var(--chocolate));
+            color: var(--pearl);
+            padding: 6rem 2rem 8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px var(--shadow);
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://feeds.abplive.com/onecms/images/uploaded-images/2023/12/29/9fac57c774fa9aa68e8373745d6423ef170384696555294_original.png?impolicy=abp_cdn&imwidth=720') center/cover fixed;
+            opacity: 0.25;
+            z-index: 0;
+        }
+
+        header h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            position: relative;
+            z-index: 1;
+            animation: fadeInDown 1.2s ease-out;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, var(--gold), var(--champagne));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            font-size: 1.8rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1.5s ease-out;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+            letter-spacing: 1px;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        .gold-divider {
+            height: 4px;
+            width: 200px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 2.5rem auto;
+            animation: expand 1.8s ease-out;
+            border-radius: 4px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: -6rem auto 6rem;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 6rem;
+            padding: 4rem;
+            background-color: var(--pearl);
+            border-radius: 16px;
+            box-shadow: 0 25px 60px var(--shadow);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+            transition: var(--transition);
+            border: 1px solid var(--gold-light);
+        }
+
+        .intro::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--amethyst), var(--gold));
+        }
+
+        .intro:hover {
+            transform: translateY(-15px) scale(1.01);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.2);
+        }
+
+        .intro h2 {
+            color: var(--chocolate);
+            margin-bottom: 2rem;
+            font-size: 3rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 800;
+        }
+
+        .intro h2::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        .intro p {
+            color: var(--truffle);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 2;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .product-card {
+            background: var(--pearl);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s forwards;
+            border: 1px solid var(--gold-light);
+        }
+
+        .product-card:nth-child(1) { animation-delay: 0.2s; }
+        .product-card:nth-child(2) { animation-delay: 0.4s; }
+        .product-card:nth-child(3) { animation-delay: 0.6s; }
+        .product-card:nth-child(4) { animation-delay: 0.8s; }
+        .product-card:nth-child(5) { animation-delay: 1s; }
+        .product-card:nth-child(6) { animation-delay: 1.2s; }
+
+        .product-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            z-index: 2;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .product-badge[data-badge="Bestseller"] {
+            background: linear-gradient(135deg, var(--ruby), #C2185B);
+        }
+
+        .product-badge[data-badge="New"] {
+            background: linear-gradient(135deg, var(--emerald), #2E8B57);
+        }
+
+        .product-badge[data-badge="Exclusive"] {
+            background: linear-gradient(135deg, var(--sapphire), #1565C0);
+        }
+
+        .product-badge[data-badge="Seasonal"] {
+            background: linear-gradient(135deg, var(--rose-gold), #AD1457);
+        }
+
+        .product-badge[data-badge="Original"] {
+            background: linear-gradient(135deg, var(--amethyst), #8E44AD);
+        }
+
+        .product-image {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.2);
+        }
+
+        .product-info {
+            padding: 2.5rem;
+            position: relative;
+        }
+
+        .product-category {
+            color: var(--gold-dark);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: block;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .product-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--chocolate);
+            position: relative;
+            padding-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .product-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+        .product-description {
+            color: var(--truffle);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.9;
+            font-weight: 500;
+        }
+
+        .product-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold-dark);
+            font-family: 'Playfair Display', serif;
+            position: relative;
+        }
+
+        .price::before {
+            content: "₹";
+            font-size: 1.5rem;
+            margin-right: 0.3rem;
+        }
+
+        .price span {
+            font-size: 1.4rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+
+        .add-to-cart {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 1rem;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+            font-family: 'Montserrat', sans-serif;
+            border: 2px solid var(--gold-light);
+        }
+
+        .add-to-cart::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.6s;
+        }
+
+        .add-to-cart:hover::before {
+            left: 100%;
+        }
+
+        .add-to-cart:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.6);
+        }
+
+        .add-to-cart i {
+            margin-right: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .category-title {
+            text-align: center;
+            margin: 8rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-title h2 {
+            display: inline-block;
+            color: var(--chocolate);
+            font-size: 3.5rem;
+            padding: 0 3rem;
+            position: relative;
+            background: var(--pearl);
+            z-index: 1;
+            font-weight: 800;
+        }
+
+        .category-title::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            z-index: 0;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.2;
+            z-index: 0;
+            animation: float 15s infinite ease-in-out;
+            filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.3));
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            width: 50px;
+            height: 50px;
+            background: url('https://cdn-icons-png.flaticon.com/512/3132/3132735.png') center/contain no-repeat;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            left: 80%;
+            width: 40px;
+            height: 40px;
+            background: url('https://cdn-icons-png.flaticon.com/512/3132/3132735.png') center/contain no-repeat;
+            animation-delay: 2s;
+            animation-duration: 20s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 30%;
+            left: 70%;
+            width: 60px;
+            height: 60px;
+            background: url('https://cdn-icons-png.flaticon.com/512/3132/3132735.png') center/contain no-repeat;
+            animation-delay: 4s;
+            animation-duration: 16s;
+        }
+
+        .floating-element:nth-child(4) {
+            top: 80%;
+            left: 20%;
+            width: 30px;
+            height: 30px;
+            background: url('https://cdn-icons-png.flaticon.com/512/3132/3132735.png') center/contain no-repeat;
+            animation-delay: 1s;
+            animation-duration: 22s;
+        }
+
+        .parallax-section {
+            height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            margin: 6rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--pearl);
+            clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .parallax-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+
+        .parallax-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .parallax-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+        }
+
+        .parallax-content p {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            font-family: 'Montserrat', sans-serif;
+            border: 2px solid var(--gold-light);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--chocolate);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--onyx), var(--chocolate));
+            color: var(--pearl);
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-top: 8rem;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--amethyst), var(--gold));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--gold), var(--champagne));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .footer-slogan {
+            font-size: 1.5rem;
+            margin-bottom: 4rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 2;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--pearl);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .social-icons a {
+            color: var(--pearl);
+            font-size: 1.8rem;
+            transition: var(--transition);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid var(--gold-light);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-8px) scale(1.15);
+            background: var(--gold);
+            color: var(--chocolate);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .footer-contact {
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .footer-contact h4 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--gold-light);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-contact p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .footer-contact i {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .footer-contact a {
+            color: var(--gold-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-contact a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 4rem;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(60px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes expand {
+            from { width: 0; opacity: 0; }
+            to { width: 200px; opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-40px) rotate(10deg); }
+            100% { transform: translateY(0) rotate(0deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Particle Animation */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: var(--gold-light);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: float 15s infinite linear;
+        }
+
+        /* Responsive */
+        @media (max-width: 1600px) {
+            .container, .nav-container {
+                max-width: 1400px;
+            }
+        }
+
+        @media (max-width: 1400px) {
+            header h1 {
+                font-size: 4.5rem;
+            }
+
+            .category-title h2 {
+                font-size: 3.2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+        }
+
+        @media (max-width: 1200px) {
+            header h1 {
+                font-size: 4rem;
+            }
+
+            header p {
+                font-size: 1.6rem;
+            }
+
+            .category-title h2 {
+                font-size: 3rem;
+            }
+
+            .product-image {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 2.5rem;
+            }
+
+            .product-image {
+                height: 260px;
+            }
+
+            .intro {
+                padding: 3rem;
+            }
+
+            .intro h2 {
+                font-size: 2.8rem;
+            }
+
+            .intro p {
+                font-size: 1.2rem;
+            }
+
+            .footer-logo {
+                font-size: 3rem;
+            }
+
+            .footer-slogan {
+                font-size: 1.3rem;
+            }
+
+            nav .nav-links {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 5rem 1.5rem 7rem;
+                clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+            }
+
+            header h1 {
+                font-size: 3.2rem;
+            }
+
+            header p {
+                font-size: 1.3rem;
+            }
+
+            .gold-divider {
+                width: 150px;
+            }
+
+            .container {
+                margin: -5rem auto 5rem;
+                padding: 0 1.5rem;
+            }
+
+            .intro {
+                padding: 2.5rem;
+                margin-bottom: 5rem;
+            }
+
+            .intro h2 {
+                font-size: 2.5rem;
+            }
+
+            .category-title h2 {
+                font-size: 2.8rem;
+                padding: 0 2rem;
+            }
+
+            .product-info {
+                padding: 2rem;
+            }
+
+            .product-title {
+                font-size: 1.7rem;
+            }
+
+            .price {
+                font-size: 1.8rem;
+            }
+
+            .parallax-section {
+                height: 400px;
+            }
+
+            .parallax-content h2 {
+                font-size: 3rem;
+            }
+
+            .parallax-content p {
+                font-size: 1.3rem;
+            }
+
+            footer {
+                padding: 6rem 1.5rem;
+                clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .footer-logo {
+                font-size: 2.8rem;
+            }
+
+            .footer-slogan {
+                font-size: 1.2rem;
+            }
+
+            .footer-links {
+                gap: 3rem;
+            }
+
+            .social-icons a {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+
+            nav .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+                display: none;
+            }
+
+            nav .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--onyx);
+                padding: 1rem;
+            }
+
+            .nav-toggle {
+                display: block;
+                background: none;
+                border: none;
+                color: var(--pearl);
+                font-size: 1.5rem;
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 576px) {
+            header {
+                padding: 4rem 1rem 6rem;
+            }
+
+            header h1 {
+                font-size: 2.8rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            .gold-divider {
+                width: 120px;
+                height: 3px;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .intro {
+                padding: 2rem 1.5rem;
+            }
+
+            .intro h2 {
+                font-size: 2.2rem;
+            }
+
+            .intro p {
+                font-size: 1.1rem;
+            }
+
+            .category-title h2 {
+                font-size: 2.2rem;
+                padding: 0 1.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-image {
+                height: 240px;
+            }
+
+            .product-info {
+                padding: 1.8rem;
+            }
+
+            .product-title {
+                font-size: 1.6rem;
+            }
+
+            .product-description {
+                font-size: 1rem;
+            }
+
+            .price {
+                font-size: 1.6rem;
+            }
+
+            .add-to-cart {
+                padding: 0.9rem 2rem;
+                font-size: 0.9rem;
+            }
+
+            .parallax-section {
+                height: 350px;
+            }
+
+            .parallax-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .parallax-content p {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+
+            .btn {
+                padding: 1rem 2.5rem;
+                font-size: 0.9rem;
+            }
+
+            footer {
+                padding: 5rem 1rem;
+            }
+
+            .footer-logo {
+                font-size: 2.5rem;
+            }
+
+            .footer-slogan {
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+            }
+
+            .footer-links {
+                gap: 2rem;
+                margin: 3rem 0;
+            }
+
+            .footer-links a {
+                font-size: 0.9rem;
+            }
+
+            .social-icons {
+                gap: 1.5rem;
+                margin: 3rem 0;
+            }
+
+            .social-icons a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+
+            .footer-contact h4 {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .footer-contact p {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .copyright {
+                margin-top: 3rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Shreeji Dairy</div>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+            <div class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#contact">Contact</a>
+                <a href="cart.html" class="cart-counter" data-count="0"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <button class="theme-toggle">Toggle Dark Mode</button>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="particles" id="particles-js"></div>
+        <h1>Shreeji Dairy & Sweets</h1>
+        <p>Where Tradition Meets Luxury in Every Bite</p>
+        <div class="gold-divider"></div>
+    </header>
+
+    <div class="container">
+        <div class="intro" id="about">
+            <h2>Shreeji Dairy & Sweets Nikol</h2>
+            <p>For over four decades, Shreeji Dairy has perfected the art of traditional Indian sweets, blending time-honored recipes with premium ingredients. Each confection is handcrafted by our master chefs, ensuring an unparalleled taste experience that celebrates India's rich culinary heritage while embracing modern sophistication.</p>
+        </div>
+
+        <div class="category-title" id="products">
+            <h2>Signature Dairy Sweets</h2>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-badge" data-badge="Bestseller">Bestseller</div>
+                <div class="product-image">
+                    <img src="https://i.pinimg.com/736x/f4/bf/b3/f4bfb3c12ed421c1d59b75479868f956.jpg" alt="Moti Choor Ladoo" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Premium Sweets</span>
+                    <h3 class="product-title">Moti Choor Ladoo</h3>
+                    <p class="product-description">Our signature Motichur Laddu is a symphony of tiny golden pearls, delicately bound with aromatic sugar syrup and infused with saffron. Each bite releases a burst of ghee-rich flavor, creating an unforgettable sensory experience that has been perfected over generations.</p>
+                    <div class="product-price">
+                        <div class="price">600 <span>750</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge" data-badge="Bestseller">Bestseller</div>
+                <div class="product-image">
+                    <img src="https://kandoisweets.com/cdn/shop/files/Kesar-Malai-Penda.jpg?v=1721793313&width=800" alt="Kesar Malai Penda" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Royal Sweets</span>
+                    <h3 class="product-title">Kesar Malai Penda</h3>
+                    <p class="product-description">Crafted from the richest khoya and infused with premium Kashmiri saffron, our Kesar Peda melts luxuriously on the palate. The delicate cardamom undertones and edible silver leaf garnish elevate this traditional sweet to a regal indulgence.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>400</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge" data-badge="New">New</div>
+                <div class="product-image">
+                    <img src="https://i.ytimg.com/vi/Dsk3vGuMg5E/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBgE8zMJ519Koggxlf_TL2k-SARdA" alt="Thabdi Peda" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Gourmet Sweets</span>
+                    <h3 class="product-title">Thabdi Peda</h3>
+                    <p class="product-description">Our Thabdi Penda is a textural masterpiece - a caramelized crust giving way to a creamy, ghee-laden interior. Made with pure A2 milk from our own dairy, this Saurashtra specialty achieves the perfect balance of sweetness and richness.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>350</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge" data-badge="New">New</div>
+                <div class="product-image">
+                    <img src="https://kandoisweets.com/cdn/shop/files/kajukatri.jpg?v=1720434317&width=800" alt="Kaju Katri" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Diamond Collection</span>
+                    <h3 class="product-title">Kaju Katri</h3>
+                    <p class="product-description">Each diamond-shaped Kaju Katri is a testament to our craftsmanship, featuring premium cashews ground to perfection and bound with just enough sugar to highlight their natural richness. The delicate silver leaf garnish adds a touch of elegance.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>400</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge" data-badge="Exclusive">Exclusive</div>
+                <div class="product-image">
+                    <img src="https://kandoisweets.com/cdn/shop/files/CE646010-C9F6-475A-B5B6-7AB0A5C74963.png?v=1721673279&width=900" alt="Kesar Kaju Katri" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Diamond Collection</span>
+                    <h3 class="product-title">Kesar Kaju Katri</h3>
+                    <p class="product-description">Our limited-edition Kesar Kaju Katri elevates the classic with premium Kashmiri saffron infusion. The golden hue and aromatic flavor profile make this an exquisite gift for discerning connoisseurs of fine sweets.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>450</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge" data-badge="Original">Original</div>
+                <div class="product-image">
+                    <img src="https://b.zmtcdn.com/data/dish_photos/f8f/2f87a56aa901448f408a122824cbef8f.jpg" alt="Kathiyawadi Penda" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Heritage Sweets</span>
+                    <h3 class="product-title">Kathiyawadi Penda</h3>
+                    <p class="product-description">This traditional Saurashtrian specialty features a unique granular texture that slowly melts on the tongue, releasing layers of caramelized milk flavors. Our version stays true to the original recipe while using only the finest dairy ingredients.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>350</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="parallax-section" style="background-image: url('https://i.pinimg.com/736x/57/ca/71/57ca71cd7234c653f643deb0209a6f8d.jpg')">
+            <div class="parallax-content">
+                <h2>Handcrafted with Passion</h2>
+                <p>Each sweet is a masterpiece created by our artisans who have perfected their craft over decades</p>
+                <a href="#" class="btn btn-outline">Discover Our Process</a>
+            </div>
+        </div>
+
+        <div class="category-title">
+            <h2>Luxury Shrikhand</h2>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-badge" data-badge="Exclusive">Exclusive</div>
+                <div class="product-image">
+                    <img src="https://i.pinimg.com/736x/b2/b5/95/b2b595bd59fdabfe6ea9c989909b2d72.jpg" alt="Rajbhog Shrikhand" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Royal Dessert</span>
+                    <h3 class="product-title">Rajbhog Shrikhand</h3>
+                    <p class="product-description">Our signature Rajbhog Shrikhand is a regal blend of hung curd infused with saffron-soaked milk and crowned with edible gold leaf. The luxurious texture and aromatic flavors make this a dessert fit for royalty, perfect for special occasions.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>400</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge" data-badge="Seasonal">Seasonal</div>
+                <div class="product-image">
+                    <img src="https://i.pinimg.com/736x/ec/5c/c2/ec5cc27d5b73ae18bf6a1c7a308b3453.jpg" alt="Eliachi Shrikhand" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Aromatic Dessert</span>
+                    <h3 class="product-title">Eliachi Shrikhand</h3>
+                    <p class="product-description">Premium green cardamom from Kerala lends its distinctive floral aroma to our Eliachi Shrikhand. The creamy texture and balanced sweetness make this a refreshing finish to any meal, especially when served chilled in our signature ceramic pots.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>350</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge" data-badge="Bestseller">Bestseller</div>
+                <div class="product-image">
+                    <img src="https://pradeepsweets.com/wp-content/uploads/2024/05/Dry-Fruit-Shrikhand.jpg" alt="Kaju Badam Shrikhand" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Nut Delight</span>
+                    <h3 class="product-title">Kaju Badam Shrikhand</h3>
+                    <p class="product-description">A luxurious blend of California almonds and premium cashews folded into our silky shrikhand base. The nutty crunch contrasts beautifully with the smooth yogurt, creating a dessert that's both indulgent and satisfying.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>400</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="parallax-section" style="background-image: url('https://i.pinimg.com/736x/57/ca/71/57ca71cd7234c653f643deb0209a6f8d.jpg')">
+            <div class="parallax-content">
+                <h2>Pure Dairy Excellence</h2>
+                <p>Our sweets begin with milk from our own heritage-breed cows, raised with care on our family farms</p>
+                <a href="https://g.co/kgs/tzRhbCR" class="btn">Visit Our Dairy</a>
+            </div>
+        </div>
+
+        <div class="category-title">
+            <h2>Signature Beverages</h2>
+        </div>
+
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-badge" data-badge="Exclusive">Exclusive</div>
+                <div class="product-image">
+                    <img src="https://i.pinimg.com/736x/51/80/a6/5180a6161d4a3daef0c1387874b6c66a.jpg" alt="Shreeji's Buttermilk" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Digestive Elixir</span>
+                    <h3 class="product-title">Shreeji's Buttermilk</h3>
+                    <p class="product-description">Our traditional chaas is cultured for 12 hours with select probiotic strains, then blended with roasted cumin, fresh mint, and black salt. Served chilled in our signature glass bottles, it's the perfect balance of tangy and refreshing.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>350</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge" data-badge="Bestseller">Bestseller</div>
+                <div class="product-image">
+                    <img src="https://www.kansarrecipes.com/wp-content/uploads/2023/02/cold-coco-in-glass.jpg" alt="Cold Coco" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Chocolate Indulgence</span>
+                    <h3 class="product-title">Cold Coco</h3>
+                    <p class="product-description">Our signature Cold Coco blends single-origin cocoa with chilled milk for a silky, luxurious chocolate experience. The perfect balance of rich and refreshing, served in our vintage-style glass bottles with a dusting of cocoa powder.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>350</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-badge" data-badge="Original">Original</div>
+                <div class="product-image">
+                    <img src="https://i.pinimg.com/736x/af/38/e9/af38e9eebb22926d01a28b3293bfac29.jpg" alt="Lassi" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Classic Refreshment</span>
+                    <h3 class="product-title">Lassi</h3>
+                    <p class="product-description">Our traditional sweet lassi is made with creamy yogurt from our dairy, blended to perfection with a touch of organic sugar and a whisper of rose water. Served in a kulhad for an authentic experience that transports you to Punjab's heartland.</p>
+                    <div class="product-price">
+                        <div class="price">300 <span>350</span></div>
+                        <button class="add-to-cart"><i class="fas fa-shopping-bag"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact">
+        <div class="floating-elements">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        <div class="footer-content">
+            <div class="footer-logo">Shreeji Dairy & Sweets</div>
+            <p class="footer-slogan">"Established 2010 in Shreeji Dairy Nikol, Ahmedabad, Gujarat, we blend four decades of tradition with innovation to create dairy and sweet masterpieces. Our commitment to quality and craftsmanship has made us a beloved destination for connoisseurs of authentic Indian sweets and dairy products."</p>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">Our Story</a>
+                <a href="#products">Products</a>
+                <a href="https://g.co/kgs/tzRhbCR">Dairy Farm</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Visit Our Shop</h4>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Shreeji Dairy & Sweets, Shop 13, Krishna Residency-2, Ahmedabad, Gujarat 380038
+                </p>
+                <p>
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+919429727520">+91 9429727520</a>
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:shreejidairyn@gmail.com">shreejidairyn@gmail.com</a>
+                </p>
+            </div>
+
+            <div class="copyright">
+                © 2025 Shreeji Dairy & Sweets Nikol. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: var(--rose-gold);"></i> in Ahmedabad
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        // Initialize particles.js
+        if (typeof particlesJS !== 'undefined') {
+            particlesJS("particles-js", {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: "#D4AF37" },
+                    shape: { type: "circle", stroke: { width: 0, color: "#000000" }, polygon: { nb_sides: 5 } },
+                    opacity: { value: 0.3, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
+                    size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
+                    line_linked: { enable: true, distance: 150, color: "#D4AF37", opacity: 0.2, width: 1 },
+                    move: {
+                        enable: true,
+                        speed: 1,
+                        direction: "none",
+                        random: true,
+                        straight: false,
+                        out_mode: "out",
+                        bounce: false,
+                        attract: { enable: true, rotateX: 600, rotateY: 1200 }
+                    }
+                },
+                interactivity: {
+                    detect_on: "canvas",
+                    events: { onhover: { enable: true, mode: "grab" }, onclick: { enable: true, mode: "push" }, resize: true },
+                    modes: {
+                        grab: { distance: 140, line_linked: { opacity: 0.5 } },
+                        bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                        repulse: { distance: 200, duration: 0.4 },
+                        push: { particles_nb: 4 },
+                        remove: { particles_nb: 2 }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            themeToggle.textContent = document.body.dataset.theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        });
+
+        // Navigation Toggle for Mobile
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cart Functionality
+        let cartCount = 0;
+        const cartCounter = document.querySelector('.cart-counter');
+        let cartItems = [];
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const productCard = this.closest('.product-card');
+                const productName = productCard.querySelector('.product-title').textContent;
+                const productPrice = parseFloat(productCard.querySelector('.price').childNodes[0].textContent);
+                
+                // Add item to cart array
+                cartItems.push({
+                    name: productName,
+                    price: productPrice,
+                    quantity: 1
+                });
+
+                // Update cart count
+                cartCount++;
+                cartCounter.setAttribute('data-count', cartCount);
+
+                // Update localStorage
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+
+                // Pulse effect
+                this.style.animation = 'pulse 0.5s ease';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 500);
+
+                // Flying cart icon effect
+                const cartIcon = document.createElement('i');
+                cartIcon.className = 'fas fa-shopping-bag';
+                cartIcon.style.position = 'fixed';
+                cartIcon.style.color = 'var(--gold)';
+                cartIcon.style.fontSize = '20px';
+                cartIcon.style.zIndex = '1000';
+                cartIcon.style.pointerEvents = 'none';
+
+                const rect = this.getBoundingClientRect();
+                const startX = rect.left + rect.width/2;
+                const startY = rect.top + rect.height/2;
+
+                cartIcon.style.left = `${startX}px`;
+                cartIcon.style.top = `${startY}px`;
+                cartIcon.style.transform = 'translate(-50%, -50%)';
+
+                document.body.appendChild(cartIcon);
+
+                const endX = cartCounter.getBoundingClientRect().left + 15;
+                const endY = cartCounter.getBoundingClientRect().top + 15;
+
+                const animation = cartIcon.animate([
+                    { left: `${startX}px`, top: `${startY}px`, opacity: 1 },
+                    { left: `${endX}px`, top: `${endY}px`, opacity: 0 }
+                ], {
+                    duration: 800,
+                    easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                });
+
+                animation.onfinish = () => {
+                    cartIcon.remove();
+                };
+
+                // Show confirmation message
+                const confirmation = document.createElement('div');
+                confirmation.textContent = `${productName} added to cart!`;
+                confirmation.style.position = 'fixed';
+                confirmation.style.background = 'var(--gold)';
+                confirmation.style.color = 'var(--chocolate)';
+                confirmation.style.padding = '1rem';
+                confirmation.style.borderRadius = '8px';
+                confirmation.style.top = '20px';
+                confirmation.style.right = '20px';
+                confirmation.style.zIndex = '2000';
+                confirmation.style.opacity = '0';
+                confirmation.style.transition = 'opacity 0.5s, transform 0.5s';
+                confirmation.style.transform = 'translateY(-20px)';
+                
+                document.body.appendChild(confirmation);
+                
+                setTimeout(() => {
+                    confirmation.style.opacity = '1';
+                    confirmation.style.transform = 'translateY(0)';
+                }, 100);
+
+                setTimeout(() => {
+                    confirmation.style.opacity = '0';
+                    confirmation.style.transform = 'translateY(-20px)';
+                    setTimeout(() => confirmation.remove(), 500);
+                }, 2000);
+            });
+        });
+
+        // Load cart from localStorage on page load
+        window.addEventListener('load', () => {
+            const savedCart = localStorage.getItem('cart');
+            if (savedCart) {
+                cartItems = JSON.parse(savedCart);
+                cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+                cartCounter.setAttribute('data-count', cartCount);
+            }
+        });
+
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
+
+        document.querySelectorAll('.product-card, .intro, .category-title, .parallax-content').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Floating elements animation
+        function animateFloatingElements() {
+            const elements = document.querySelectorAll('.floating-element');
+            elements.forEach((el, index) => {
+                const delay = index * 2;
+                el.style.animationDelay = `${delay}s`;
+                const duration = 15 + Math.random() * 10;
+                el.style.animationDuration = `${duration}s`;
+            });
+        }
+        animateFloatingElements();
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Lazy Load Images
+        if ('IntersectionObserver' in window) {
+            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.getAttribute('src');
+                        img.removeAttribute('loading');
+                        observer.unobserve(img);
+                    }
+                });
+            }, { rootMargin: '200px 0px 200px 0px' });
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+    </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
