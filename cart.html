@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your shopping cart at Shreeji Dairy & Sweets - Review and checkout your luxury Indian sweets">
+    <meta name="keywords" content="Indian sweets cart, dairy products checkout, Shreeji Dairy order">
+    <meta name="author" content="Shreeji Dairy & Sweets">
+    <title>Your Cart | Shreeji Dairy & Sweets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F4E5C2;
+            --gold-dark: #996515;
+            --marble: #F8F4E9;
+            --ivory: #FFFFF0;
+            --chocolate: #3D2B1F;
+            --truffle: #4f3113;
+            --rose-gold: #B76E79;
+            --platinum: #E5E4E2;
+            --diamond: #C0E8FF;
+            --sapphire: #0F52BA;
+            --emerald: #50C878;
+            --ruby: #E0115F;
+            --onyx: #0A0A0A;
+            --pearl: #F8F6F0;
+            --silk: #F5E9D9;
+            --shadow: rgba(0,0,0,0.15);
+            --amethyst: #9B59B6;
+            --champagne: #F7E7CE;
+            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Dark mode variables */
+            --bg-dark: #1A1A1A;
+            --text-dark: #E8ECEF;
+            --accent-dark: #FFD700;
+        }
+
+        [data-theme="dark"] {
+            --marble: var(--bg-dark);
+            --pearl: #2C2C2C;
+            --truffle: var(--text-dark);
+            --chocolate: var(--text-dark);
+            --gold: var(--accent-dark);
+            --gold-light: var(--accent-dark);
+            --gold-dark: #CCAC00;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--marble);
+            color: var(--truffle);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.8;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--onyx);
+            z-index: 1000;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 12px var(--shadow);
+            transition: var(--transition);
+        }
+
+        nav .nav-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .nav-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav .nav-links a {
+            color: var(--pearl);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: var(--transition);
+        }
+
+        nav .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .theme-toggle {
+            background: var(--gold);
+            color: var(--chocolate);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--gold-dark);
+            transform: translateY(-2px);
+        }
+
+        .cart-counter {
+            position: relative;
+            color: var(--pearl);
+            font-size: 1rem;
+        }
+
+        .cart-counter::after {
+            content: attr(data-count);
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--ruby);
+            color: white;
+            border-radius: 50%;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cart-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .cart-header h1 {
+            font-size: 3.5rem;
+            color: var(--chocolate);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .cart-header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--gold);
+            border-radius: 4px;
+        }
+
+        .cart-header p {
+            font-size: 1.3rem;
+            color: var(--truffle);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cart-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+
+        .cart-items {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .cart-summary {
+            flex: 1;
+            min-width: 300px;
+            background: var(--pearl);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 15px 40px var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 120px;
+            border: 1px solid var(--gold-light);
+        }
+
+        .cart-summary h2 {
+            color: var(--chocolate);
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .cart-summary h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .summary-row.total {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px dashed var(--gold-light);
+        }
+
+        .summary-label {
+            color: var(--truffle);
+        }
+
+        .summary-value {
+            color: var(--gold-dark);
+            font-weight: 600;
+        }
+
+        .summary-value.total {
+            font-size: 1.8rem;
+            color: var(--chocolate);
+        }
+
+        .checkout-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            margin-top: 2rem;
+            font-size: 1.1rem;
+            border: 2px solid var(--gold-light);
+        }
+
+        .checkout-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        .checkout-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            border-color: #ccc;
+        }
+
+        .cart-item {
+            display: flex;
+            background: var(--pearl);
+            border-radius: 16px;
+            box-shadow: 0 15px 40px var(--shadow);
+            margin-bottom: 2rem;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--gold-light);
+        }
+
+        .cart-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .cart-item-image {
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .cart-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cart-item:hover .cart-item-image img {
+            transform: scale(1.1);
+        }
+
+        .cart-item-details {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .cart-item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .cart-item-title {
+            font-size: 1.5rem;
+            color: var(--chocolate);
+            font-weight: 700;
+        }
+
+        .cart-item-price {
+            font-size: 1.3rem;
+            color: var(--gold-dark);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .cart-item-price::before {
+            content: "₹";
+            font-size: 1rem;
+            margin-right: 0.2rem;
+        }
+
+        .cart-item-description {
+            color: var(--truffle);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .cart-item-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--gold-light);
+            color: var(--chocolate);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 700;
+        }
+
+        .quantity-btn:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .quantity-value {
+            width: 40px;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--ruby);
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .remove-item:hover {
+            color: #C2185B;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 4rem;
+            background: var(--pearl);
+            border-radius: 16px;
+            box-shadow: 0 15px 40px var(--shadow);
+            border: 1px solid var(--gold-light);
+        }
+
+        .empty-cart i {
+            font-size: 5rem;
+            color: var(--gold);
+            margin-bottom: 2rem;
+        }
+
+        .empty-cart h2 {
+            color: var(--chocolate);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .empty-cart p {
+            color: var(--truffle);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .continue-shopping {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            font-family: 'Montserrat', sans-serif;
+            border: 2px solid var(--gold-light);
+        }
+
+        .continue-shopping:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        footer {
+            background: linear-gradient(135deg, var(--onyx), var(--chocolate));
+            color: var(--pearl);
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-top: 8rem;
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 10%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--gold), var(--amethyst), var(--gold));
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, var(--gold), var(--champagne));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 2px;
+        }
+
+        .footer-slogan {
+            font-size: 1.5rem;
+            margin-bottom: 4rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 2;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--pearl);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 1rem;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-links a::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .footer-links a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-links a:hover::after {
+            width: 100%;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin: 4rem 0;
+        }
+
+        .social-icons a {
+            color: var(--pearl);
+            font-size: 1.8rem;
+            transition: var(--transition);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid var(--gold-light);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-8px) scale(1.15);
+            background: var(--gold);
+            color: var(--chocolate);
+            box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .footer-contact {
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .footer-contact h4 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--gold-light);
+            font-family: 'Playfair Display', serif;
+        }
+
+        .footer-contact p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .footer-contact i {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+
+        .footer-contact a {
+            color: var(--gold-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-contact a:hover {
+            color: var(--gold);
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 4rem;
+            font-size: 1rem;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Checkout Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--pearl);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            transform: translateY(50px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid var(--gold-light);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--truffle);
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--ruby);
+            transform: rotate(90deg);
+        }
+
+        .modal-header h2 {
+            color: var(--chocolate);
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .modal-header h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--truffle);
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--gold-light);
+            border-radius: 8px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            background: var(--marble);
+            color: var(--truffle);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        .modal-footer {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            font-size: 1rem;
+            border: 2px solid var(--gold-light);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: white;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold-dark);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: var(--chocolate);
+        }
+
+        /* Success Modal */
+        .success-modal .modal-content {
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        .success-icon {
+            font-size: 5rem;
+            color: var(--emerald);
+            margin-bottom: 2rem;
+            animation: pulse 1.5s infinite;
+        }
+
+        .success-modal h2 {
+            color: var(--chocolate);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .success-modal p {
+            color: var(--truffle);
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .cart-header h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .cart-item-image {
+                width: 150px;
+                height: 150px;
+            }
+
+            .cart-item-title {
+                font-size: 1.3rem;
+            }
+
+            .cart-item-price {
+                font-size: 1.1rem;
+            }
+
+            .cart-item-description {
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 3rem auto;
+                padding: 0 1.5rem;
+            }
+
+            .cart-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .cart-header p {
+                font-size: 1.1rem;
+            }
+
+            .cart-item {
+                flex-direction: column;
+            }
+
+            .cart-item-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            .cart-item-details {
+                padding: 1.5rem;
+            }
+
+            .cart-summary {
+                padding: 2rem;
+            }
+
+            .modal-content {
+                padding: 2rem;
+            }
+
+            .modal-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 1rem;
+                margin: 2rem auto;
+            }
+
+            .cart-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .cart-header p {
+                font-size: 1rem;
+            }
+
+            .empty-cart h2 {
+                font-size: 2rem;
+            }
+
+            .empty-cart p {
+                font-size: 1rem;
+            }
+
+            .continue-shopping {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+
+            .footer-logo {
+                font-size: 2.5rem;
+            }
+
+            .footer-slogan {
+                font-size: 1.1rem;
+            }
+
+            .footer-links {
+                gap: 2rem;
+            }
+
+            .social-icons a {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">Shreeji Dairy</div>
+            <button class="nav-toggle"><i class="fas fa-bars"></i></button>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#products">Products</a>
+                <a href="index.html#contact">Contact</a>
+                <a href="cart.html" class="cart-counter" data-count="0"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <button class="theme-toggle">Toggle Dark Mode</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="cart-header">
+            <h1>Your Shopping Cart</h1>
+            <p>Review your selection of premium sweets and dairy products from Shreeji Dairy</p>
+        </div>
+
+        <div class="cart-wrapper">
+            <div class="cart-items" id="cart-items-container">
+                <!-- Cart items will be dynamically inserted here -->
+            </div>
+
+            <div class="cart-summary">
+                <h2>Order Summary</h2>
+                <div class="summary-row">
+                    <span class="summary-label">Subtotal</span>
+                    <span class="summary-value" id="subtotal">₹0</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Delivery</span>
+                    <span class="summary-value" id="delivery">₹50</span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Tax (5%)</span>
+                    <span class="summary-value" id="tax">₹0</span>
+                </div>
+                <div class="summary-row total">
+                    <span class="summary-label">Total</span>
+                    <span class="summary-value total" id="total">₹0</span>
+                </div>
+                <button class="checkout-btn" id="checkout-btn" disabled>Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">&times;</button>
+            <div class="modal-header">
+                <h2>Checkout</h2>
+            </div>
+            <form id="checkout-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">First Name</label>
+                        <input type="text" id="first-name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Last Name</label>
+                        <input type="text" id="last-name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="address">Delivery Address</label>
+                    <textarea id="address" class="form-control" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="payment">Payment Method</label>
+                    <select id="payment" class="form-control" required>
+                        <option value="">Select Payment Method</option>
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="card">Credit/Debit Card</option>
+                        <option value="upi">UPI Payment</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" id="cancel-checkout">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Place Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal-overlay success-modal" id="success-modal">
+        <div class="modal-content">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h2>Order Placed Successfully!</h2>
+            <p>Pick Up For Shop .</p>
+            <button class="btn btn-primary" id="success-close">Continue Shopping</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Shreeji Dairy & Sweets</div>
+            <p class="footer-slogan">"Established 2010 in Shreeji Dairy Nikol, Ahmedabad, Gujarat, we blend four decades of tradition with innovation to create dairy and sweet masterpieces. Our commitment to quality and craftsmanship has made us a beloved destination for connoisseurs of authentic Indian sweets and dairy products."</p>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#about">Our Story</a>
+                <a href="index.html#products">Products</a>
+                <a href="https://g.co/kgs/tzRhbCR">Dairy Farm</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Visit Our Shop</h4>
+                <p>
+                    <i class="fas fa-map-marker-alt"></i>
+                    Shreeji Dairy & Sweets, Shop 13, Krishna Residency-2, Ahmedabad, Gujarat 380038
+                </p>
+                <p>
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+919429727520">+91 9429727520</a>
+                </p>
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:shreejidairyn@gmail.com">shreejidairyn@gmail.com</a>
+                </p>
+            </div>
+
+            <div class="copyright">
+                © 2025 Shreeji Dairy & Sweets Nikol. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: var(--rose-gold);"></i> in Ahmedabad
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
+            themeToggle.textContent = document.body.dataset.theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+            
+            // Save theme preference to localStorage
+            localStorage.setItem('theme', document.body.dataset.theme);
+        });
+
+        // Load theme preference from localStorage
+        if (localStorage.getItem('theme')) {
+            document.body.dataset.theme = localStorage.getItem('theme');
+            themeToggle.textContent = document.body.dataset.theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+        }
+
+        // Navigation Toggle for Mobile
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cart functionality
+        let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartCounter = document.querySelector('.cart-counter');
+        const subtotalElement = document.getElementById('subtotal');
+        const deliveryElement = document.getElementById('delivery');
+        const taxElement = document.getElementById('tax');
+        const totalElement = document.getElementById('total');
+        const checkoutBtn = document.getElementById('checkout-btn');
+
+        // Checkout modal elements
+        const checkoutModal = document.getElementById('checkout-modal');
+        const modalClose = document.getElementById('modal-close');
+        const cancelCheckout = document.getElementById('cancel-checkout');
+        const checkoutForm = document.getElementById('checkout-form');
+        const successModal = document.getElementById('success-modal');
+        const successClose = document.getElementById('success-close');
+
+        // Render cart items
+        function renderCartItems() {
+            cartItemsContainer.innerHTML = '';
+
+            if (cartItems.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h2>Your cart is empty</h2>
+                        <p>Looks like you haven't added any delicious sweets to your cart yet. Browse our collection and find something sweet!</p>
+                        <a href="index.html" class="continue-shopping">Continue Shopping</a>
+                    </div>
+                `;
+                checkoutBtn.disabled = true;
+                return;
+            }
+
+            checkoutBtn.disabled = false;
+
+            cartItems.forEach((item, index) => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.innerHTML = `
+                    <div class="cart-item-image">
+                        <img src="${item.image || 'https://via.placeholder.com/200'}" alt="${item.name}" loading="lazy">
+                    </div>
+                    <div class="cart-item-details">
+                        <div class="cart-item-header">
+                            <h3 class="cart-item-title">${item.name}</h3>
+                            <span class="cart-item-price">${item.price}</span>
+                        </div>
+                        <p class="cart-item-description">${item.description || 'Premium Indian sweet crafted with care'}</p>
+                        <div class="cart-item-actions">
+                            <div class="quantity-control">
+                                <button class="quantity-btn minus" data-index="${index}">-</button>
+                                <span class="quantity-value">${item.quantity}</span>
+                                <button class="quantity-btn plus" data-index="${index}">+</button>
+                            </div>
+                            <button class="remove-item" data-index="${index}">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.quantity-btn.minus').forEach(btn => {
+                btn.addEventListener('click', decreaseQuantity);
+            });
+
+            document.querySelectorAll('.quantity-btn.plus').forEach(btn => {
+                btn.addEventListener('click', increaseQuantity);
+            });
+
+            document.querySelectorAll('.remove-item').forEach(btn => {
+                btn.addEventListener('click', removeItem);
+            });
+
+            updateCartSummary();
+        }
+
+        // Update cart summary
+        function updateCartSummary() {
+            const subtotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const tax = subtotal * 0.05;
+            const delivery = subtotal > 0 ? 50 : 0;
+            const total = subtotal + tax + delivery;
+
+            subtotalElement.textContent = `₹${subtotal.toFixed(2)}`;
+            taxElement.textContent = `₹${tax.toFixed(2)}`;
+            deliveryElement.textContent = `₹${delivery.toFixed(2)}`;
+            totalElement.textContent = `₹${total.toFixed(2)}`;
+
+            // Update cart counter
+            const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+            cartCounter.setAttribute('data-count', totalItems);
+        }
+
+        // Quantity control functions
+        function increaseQuantity(e) {
+            const index = e.target.getAttribute('data-index');
+            cartItems[index].quantity += 1;
+            saveCart();
+            renderCartItems();
+        }
+
+        function decreaseQuantity(e) {
+            const index = e.target.getAttribute('data-index');
+            if (cartItems[index].quantity > 1) {
+                cartItems[index].quantity -= 1;
+                saveCart();
+                renderCartItems();
+            }
+        }
+
+        function removeItem(e) {
+            const index = e.target.getAttribute('data-index');
+            cartItems.splice(index, 1);
+            saveCart();
+            renderCartItems();
+        }
+
+        // Save cart to localStorage
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+        }
+
+        // Checkout modal functions
+        checkoutBtn.addEventListener('click', () => {
+            checkoutModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        modalClose.addEventListener('click', closeModal);
+        cancelCheckout.addEventListener('click', closeModal);
+        successClose.addEventListener('click', () => {
+            successModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        function closeModal() {
+            checkoutModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Handle form submission
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // In a real application, you would process the payment here
+            // For this demo, we'll just show the success message
+            
+            // Clear the cart
+            cartItems = [];
+            saveCart();
+            renderCartItems();
+            
+            // Close checkout modal and show success modal
+            closeModal();
+            successModal.classList.add('active');
+            
+            // Reset form
+            checkoutForm.reset();
+        });
+
+        // Initialize the page
+        renderCartItems();
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    <!-- Add this inside the checkout modal, below the payment method select -->
+<div id="card-payment-fields" style="display: none;">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="card-number">Card Number</label>
+            <input type="text" id="card-number" class="form-control" placeholder="1234 5678 9012 3456">
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="card-expiry">Expiry Date</label>
+            <input type="text" id="card-expiry" class="form-control" placeholder="MM/YY">
+        </div>
+        <div class="form-group">
+            <label for="card-cvc">CVC</label>
+            <input type="text" id="card-cvc" class="form-control" placeholder="123">
+        </div>
+    </div>
+</div>
+
+<div id="upi-payment-fields" style="display: none;">
+    <div class="form-group">
+        <label for="upi-id">UPI ID</label>
+        <input type="text" id="upi-id" class="form-control" placeholder="yourname@upi">
+    </div>
+</div>
+<!-- Add these before your main script -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="api.js" type="module"></script>
+<script src="cart.js" type="module"></script>
+    <script src="cart.js"></script>
+     <script src="script.js"></script>
+</body>
+</html>
